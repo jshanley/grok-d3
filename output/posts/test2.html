@@ -8,7 +8,8 @@
     <meta content="nanoc 3.7.3" name="generator">
     <script src="../assets/bower/jquery/dist/jquery.min.js"></script>
     <script src="../assets/bower/d3/d3.min.js"></script>
-        <script src="../assets/scripts/d3-example.js"></script>
+        <script src="../assets/bower/codemirror/lib/codemirror.js"></script>
+    <script src="../assets/scripts/d3-example.js"></script>
 
     
       
@@ -18,20 +19,18 @@
         <meta content="nanoc 3.7.3" name="generator">
         <script src="../assets/bower/jquery/dist/jquery.min.js"></script>
         <script src="../assets/bower/d3/d3.min.js"></script>
-            <script src="../assets/scripts/d3-example.js"></script>
+            <script src="../assets/bower/codemirror/lib/codemirror.js"></script>
+        <script src="../assets/scripts/d3-example.js"></script>
   
   </head>
 <body>
     <div id="main">
       <h1>Testing HAML</h1>
       <p>meh</p>
-      <h3 id="testing-markdown">Testing Markdown</h3>
-      
-      <blockquote>
-        <p>blockquote</p>
-      </blockquote>
-      
-      <p><strong>markdown</strong> in <em>HAML</em>!</p>
+      <div class="d3-example">
+        <textarea class="codebox"></textarea>
+        <iframe class="output"></iframe>
+      </div>
     </div>
     <div id="sidebar">
       <h2>Documentation</h2>

@@ -1,0 +1,11 @@
+!!!
+%html{:lang => "en"}
+	%head
+		= render "partials/shared-head"
+		= if @item[:d3_examples]
+			%script{:src => @items['/assets/bower/codemirror/lib/codemirror.js/'].path}
+			%script{:src => @items['/assets/scripts/d3-example.js/'].path}
+	%body
+		#main
+			= yield
+		= render "partials/sidebar"

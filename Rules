@@ -1,0 +1,69 @@
+#!/usr/bin/env ruby
+
+# A few helpful tips about the Rules file:
+#
+# * The string given to #compile and #route are matching patterns for
+#   identifiers--not for paths. Therefore, you can’t match on extension.
+#
+# * The order of rules is important: for each item, only the first matching
+#   rule is applied.
+#
+# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+#   “content/about.html”). To select all children, grandchildren, … of an
+#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   because “*” matches zero or more characters.
+
+# STATIC ASSETS
+passthrough '/assets/*/'
+
+# INDEXES
+compile '/' do
+  filter_by_ext(item[:extension])
+  layout item[:layout] || 'default'
+  filter :relativize_paths, :type => :html
+end
+
+route '/' do
+  item.identifier + 'index.html'
+end
+
+# POSTS
+compile '/posts/*' do
+  filter_by_ext(item[:extension])
+  layout item[:layout] || 'post'
+  filter :relativize_paths, :type => :html
+end
+
+route '/posts/*' do
+  item.identifier.chop + '.html'
+end
+
+compile '*' do
+  unless item.binary?
+    filter_by_ext(item[:extension])
+    case item[:extension]
+    when 'md', 'haml', 'html'
+      layout item[:layout] || 'default'
+      filter :relativize_paths, :type => :html
+    when 'scss', 'css'
+      filter :relativize_paths, :type => :css
+    end
+  end
+end
+
+route '*' do
+  unless item.binary?
+    case item[:extension]
+    when 'scss', 'css'
+      item.identifier.chop + '.css'
+    when 'md', 'haml', 'html'
+      item.identifier.chop + '.html'
+    end
+  else
+    # Write item with identifier /foo/ to /foo.ext
+    item.identifier.chop + '.' + item[:extension]
+
+  end
+end
+
+layout '*', :haml
