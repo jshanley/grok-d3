@@ -15,8 +15,9 @@
 
 # STATIC ASSETS
 passthrough '/assets/*/'
+passthrough '/d3-examples/*/'
 
-# INDEXES
+# INDEX
 compile '/' do
   filter_by_ext(item[:extension])
   layout item[:layout] || 'default'
@@ -28,16 +29,21 @@ route '/' do
 end
 
 # POSTS
-compile '/posts/*' do
+compile '/posts/*/' do
   filter_by_ext(item[:extension])
   layout item[:layout] || 'post'
   filter :relativize_paths, :type => :html
 end
 
-route '/posts/*' do
-  item.identifier.chop + '.html'
+route '/posts/*/' do
+  if item[:extension]
+    item.identifier.chop + '.html'
+  else
+    item.identifier + 'index.html'
+  end
 end
 
+# THE REST
 compile '*' do
   unless item.binary?
     filter_by_ext(item[:extension])
@@ -62,7 +68,6 @@ route '*' do
   else
     # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension]
-
   end
 end
 

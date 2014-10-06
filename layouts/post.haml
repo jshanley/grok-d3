@@ -2,10 +2,7 @@
 %html{:lang => "en"}
 	%head
 		= render "partials/shared-head"
-		= if @item[:d3_examples]
-			%script{:src => @items['/assets/bower/codemirror/lib/codemirror.js/'].path}
-			%script{:src => @items['/assets/scripts/d3-example.js/'].path}
 	%body
+		%link{:rel => "import", :href => @items['/assets/web-components/d3-example.html/'].path}/
 		#main
 			= yield
-		= render "partials/sidebar"

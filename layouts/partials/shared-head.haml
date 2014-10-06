@@ -1,6 +1,7 @@
 %meta{:charset => "utf-8"}/
 %title= @item[:title]
-%link{:href => @items['/stylesheet/'].path, :rel => "stylesheet"}/
 %meta{:content => "nanoc #{Nanoc::VERSION}", :name => "generator"}/
+%script{:src => @items['/assets/bower/platform/platform.js/'].path}
 %script{:src => @items['/assets/bower/jquery/dist/jquery.min.js/'].path}
 %script{:src => @items['/assets/bower/d3/d3.min.js/'].path}
+%link{:href => @items['/stylesheet/'].path, :rel => "stylesheet"}/

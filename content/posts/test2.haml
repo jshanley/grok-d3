@@ -1,10 +1,11 @@
 ---
 title: HAML test
-d3_examples: true
+kind: post
 ---
 
 %h1 Testing HAML
 
 %p meh
 
-= render "partials/d3-example"
+%d3-example= @items['/d3-examples/example01/'].compiled_content
+	

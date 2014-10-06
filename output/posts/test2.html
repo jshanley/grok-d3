@@ -4,57 +4,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <title>HAML test</title>
-    <link href="../stylesheet.css" rel="stylesheet">
     <meta content="nanoc 3.7.3" name="generator">
+    <script src="../assets/bower/platform/platform.js"></script>
     <script src="../assets/bower/jquery/dist/jquery.min.js"></script>
     <script src="../assets/bower/d3/d3.min.js"></script>
-        <script src="../assets/bower/codemirror/lib/codemirror.js"></script>
-    <script src="../assets/scripts/d3-example.js"></script>
-
-    
-      
-        <meta charset="utf-8">
-        <title>HAML test</title>
-        <link href="../stylesheet.css" rel="stylesheet">
-        <meta content="nanoc 3.7.3" name="generator">
-        <script src="../assets/bower/jquery/dist/jquery.min.js"></script>
-        <script src="../assets/bower/d3/d3.min.js"></script>
-            <script src="../assets/bower/codemirror/lib/codemirror.js"></script>
-        <script src="../assets/scripts/d3-example.js"></script>
-  
+    <link href="../stylesheet.css" rel="stylesheet">
   </head>
-<body>
+  <body>
+    <link href="../assets/web-components/d3-example.html" rel="import">
     <div id="main">
       <h1>Testing HAML</h1>
       <p>meh</p>
-      <div class="d3-example">
-        <textarea class="codebox"></textarea>
-        <iframe class="output"></iframe>
-      </div>
+      <d3-example>
+        var test = 'testing';
+        
+        d3.selectAll('.empty')
+        	.data(data)
+        	.enter().append('div')
+        	.text('some text');
+      </d3-example>
     </div>
-    <div id="sidebar">
-      <h2>Documentation</h2>
-      <ul>
-        <li>
-          <a href="http://nanoc.ws/docs/">Documentation</a>
-        </li>
-        <li>
-          <a href="http://nanoc.ws/docs/tutorial/">Getting Started</a>
-        </li>
-      </ul>
-      <h2>Community</h2>
-      <ul>
-        <li>
-          <a href="http://groups.google.com/group/nanoc/">Discussion Group</a>
-        </li>
-        <li>
-          <a href="irc://chat.freenode.net/#nanoc">IRC Channel</a>
-        </li>
-        <li>
-          <a href="http://github.com/nanoc/nanoc/wiki/">Wiki</a>
-        </li>
-      </ul>
-    </div>
-  
-</body>
+  </body>
 </html>

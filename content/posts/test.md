@@ -1,5 +1,6 @@
 ---
 title: Test Post
+kind: post
 ---
 
 # Test Post
