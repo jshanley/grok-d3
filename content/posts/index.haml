@@ -1,0 +1,8 @@
+---
+title: Posts
+kind: index
+---
+
+- posts = @items.select { |i| i[:kind] == 'post'}
+- posts.each do |post|
+	%a{:href => post.path}= post[:title]

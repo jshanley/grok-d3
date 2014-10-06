@@ -1,0 +1,43 @@
+<link rel="import" href="../bower/polymer/polymer.html" />
+<link rel="import" href="./js-box.html" />
+
+<polymer-element name="d3-example">
+	<template>
+		<div id="wrapper">
+			<js-box id="code"></js-box>
+			<iframe id="result" src="./d3-example-iframe-src.html"></iframe>
+		</div>
+		<style>
+
+		:host * {
+			box-sizing: border-box;
+		}
+		:host #wrapper{
+			width: 100%;
+			border: 1px solid red;
+		}
+		:host #code {
+			float: left;
+			width: 50%;
+			height: 500px;
+			border: 1px solid blue;
+		}
+		:host #result {
+			float: left;
+			width: 50%;
+			height: 500px;
+			border: 1px solid green;
+		}
+		</style>
+	</template>
+	<script>
+	Polymer({
+		ready: function() {
+			this.$.code.value(this.textContent)
+			this.$.code.cm.on('change', function(cm) {
+				console.log(cm.getValue())
+			})
+		}
+	})
+	</script>
+</polymer-element>
