@@ -3,9 +3,6 @@ title: HAML test
 kind: post
 ---
 
-%h1 Testing HAML
+%h1 D3 Example Test
 
-%p meh
-
-%d3-example= @items['/d3-examples/example01/'].compiled_content
-	
+%d3-example{:js => @items['/d3-examples/example-01/script/'].path, :css => @items['/d3-examples/example-01/style/'].path}

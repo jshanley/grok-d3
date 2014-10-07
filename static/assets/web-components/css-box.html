@@ -1,0 +1,16 @@
+<link rel="import" href="../bower/polymer/polymer.html" />
+<link rel="import" href="./cm-box.html" />
+
+<polymer-element name="css-box" extends="cm-box">
+  <template>
+    <shadow></shadow>
+  </template>
+  <script>
+    Polymer({
+      ready: function() {
+        this.super();
+        this.cm.setOption('mode', 'css')
+      }
+    });
+  </script>
+</polymer-element>

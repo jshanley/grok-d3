@@ -1,42 +1,82 @@
 <link rel="import" href="../bower/polymer/polymer.html" />
+<link rel="import" href="../bower/core-ajax/core-ajax.html" />
+<link rel="import" href="../bower/core-pages/core-pages.html" />
+<link rel="import" href="../bower/paper-tabs/paper-tabs.html" />
 <link rel="import" href="./js-box.html" />
+<link rel="import" href="./css-box.html" />
+<link rel="import" href="./result-box.html" />
 
-<polymer-element name="d3-example">
+<polymer-element name="d3-example" attributes="js css">
 	<template>
-		<div id="wrapper">
-			<js-box id="code"></js-box>
-			<iframe id="result" src="./d3-example-iframe-src.html"></iframe>
-		</div>
-		<style>
 
-		:host * {
-			box-sizing: border-box;
-		}
-		:host #wrapper{
-			width: 100%;
-			border: 1px solid red;
-		}
-		:host #code {
-			float: left;
-			width: 50%;
-			height: 500px;
-			border: 1px solid blue;
-		}
-		:host #result {
-			float: left;
-			width: 50%;
-			height: 500px;
-			border: 1px solid green;
-		}
-		</style>
+		<link rel="stylesheet" href="./d3-example.css" />
+
+		<core-ajax auto url="{{js}}" handleAs="text" on-core-response="{{jsLoaded}}"></core-ajax>
+		<core-ajax auto url="{{css}}" handleAs="text" on-core-response="{{cssLoaded}}"></core-ajax>
+
+		<div id="wrapper">
+			<div id="view">
+				<result-box id="result"></result-box>
+			</div>
+			<div id="code">
+				<paper-tabs id="tabs" noink selected="0">
+					<paper-tab>JS</paper-tab>
+					<paper-tab>CSS</paper-tab>
+				</paper-tabs>
+				<core-pages id="pages" selected="0">
+					<js-box id="js"></js-box>
+					<css-box id="css"></css-box>
+				</core-pages>
+			</div>
+		</div>
 	</template>
 	<script>
+
+	var fireAfterDelay = (function() {
+		var timer = 0;
+		return function(cb, t) {
+			clearTimeout(timer);
+			timer = setTimeout(cb, t);
+		};
+	})();
+
 	Polymer({
 		ready: function() {
-			this.$.code.value(this.textContent)
-			this.$.code.cm.on('change', function(cm) {
-				console.log(cm.getValue())
-			})
+			var js = this.$.js,
+					css = this.$.css,
+					result = this.$.result;
+
+			var tabs = this.$.tabs,
+					pages = this.$.pages;
+
+			tabs.addEventListener('core-select', function() {
+				pages.selected = tabs.selected;
+			});
+
+			js.cm.on('change', function() {
+				fireAfterDelay(function() {
+					result.js(js.value());
+				}, 500)
+			});
+
+			css.cm.on('change', function() {
+				fireAfterDelay(function() {
+					result.css(css.value());
+				}, 500)
+			});
+
+		},
+		jsLoaded: function(e) {
+			var js = this.$.js,
+					result = this.$.result;
+			js.value(e.detail.response)
+			result.js(js.value());
+		},
+		cssLoaded: function(e) {
+			var css = this.$.css,
+					result = this.$.result;
+			css.value(e.detail.response)
+			result.css(css.value());
 		}
 	})
 	</script>

@@ -1,0 +1,8 @@
+svg {
+  border: 1px solid #ccc;
+}
+
+svg circle {
+  stroke: #333;
+  fill: skyblue;
+}

@@ -14,6 +14,11 @@
     "d3": "~3.4.11",
     "jquery": "~2.1.1",
     "codemirror": "~4.6.0",
-    "polymer": "Polymer/polymer#~0.4.2"
+    "polymer": "Polymer/polymer#~0.4.2",
+    "core-ajax": "Polymer/core-ajax#~0.4.2",
+    "core-pages": "Polymer/core-pages#~0.4.2",
+    "paper-tabs": "Polymer/paper-tabs#~0.4.2",
+    "core-scaffold": "Polymer/core-scaffold#~0.4.2",
+    "core-item": "Polymer/core-item#~0.4.2"
   }
 }

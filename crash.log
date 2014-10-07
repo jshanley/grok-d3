@@ -1,30 +1,30 @@
-Crashlog created at 2014-10-05 23:22:32 -0400
+Crashlog created at 2014-10-06 15:10:31 -0400
 
 ===== MESSAGE:
 
-Haml::Error: Invalid filter name ":preserve var meh = 'meh';".
+NoMethodError: undefined method `path' for nil:NilClass
 
 ===== COMPILATION STACK:
 
-  - [item]   /posts/test2/ (rep default)
+  - [item]   /posts/test/ (rep default)
 
 ===== STACK TRACE:
 
-  0. item /posts/test2/ (rep default):7
-  1. /usr/local/lib/ruby/gems/2.1.0/gems/haml-4.1.0.beta.1/lib/haml/parser.rb:457:in `filter'
-  2. /usr/local/lib/ruby/gems/2.1.0/gems/haml-4.1.0.beta.1/lib/haml/parser.rb:239:in `process_line'
-  3. /usr/local/lib/ruby/gems/2.1.0/gems/haml-4.1.0.beta.1/lib/haml/parser.rb:132:in `block in parse'
-  4. /usr/local/lib/ruby/gems/2.1.0/gems/haml-4.1.0.beta.1/lib/haml/parser.rb:118:in `loop'
-  5. /usr/local/lib/ruby/gems/2.1.0/gems/haml-4.1.0.beta.1/lib/haml/parser.rb:118:in `parse'
-  6. /usr/local/lib/ruby/gems/2.1.0/gems/haml-4.1.0.beta.1/lib/haml/engine.rb:66:in `initialize'
-  7. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/filters/haml.rb:23:in `new'
-  8. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/filters/haml.rb:23:in `run'
-  9. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/base/compilation/filter.rb:121:in `setup_and_run'
-  10. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/base/result_data/item_rep.rb:339:in `filter'
-  11. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/base/compilation/item_rep_proxy.rb:47:in `filter'
-  12. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/base/compilation/rule_context.rb:61:in `filter'
-  13. lib/filter_by_ext.rb:6:in `filter_by_ext'
-  14. /Users/macseanlaoish/dev/grok-d3/Rules:32:in `block in parse'
+  0. layout /partials/sidebar/:3:in `block in render'
+  1. /usr/local/lib/ruby/gems/2.1.0/gems/haml-4.1.0.beta.1/lib/haml/engine.rb:126:in `eval'
+  2. /usr/local/lib/ruby/gems/2.1.0/gems/haml-4.1.0.beta.1/lib/haml/engine.rb:126:in `render'
+  3. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/filters/haml.rb:23:in `run'
+  4. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/base/compilation/filter.rb:121:in `setup_and_run'
+  5. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/helpers/rendering.rb:120:in `render'
+  6. layout /post/:9:in `block in render'
+  7. /usr/local/lib/ruby/gems/2.1.0/gems/haml-4.1.0.beta.1/lib/haml/engine.rb:126:in `eval'
+  8. /usr/local/lib/ruby/gems/2.1.0/gems/haml-4.1.0.beta.1/lib/haml/engine.rb:126:in `render'
+  9. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/filters/haml.rb:23:in `run'
+  10. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/base/compilation/filter.rb:121:in `setup_and_run'
+  11. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/base/result_data/item_rep.rb:403:in `layout'
+  12. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/base/compilation/item_rep_proxy.rb:69:in `layout'
+  13. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/base/compilation/rule_context.rb:74:in `layout'
+  14. /Users/macseanlaoish/dev/grok-d3/Rules:34:in `block in parse'
   15. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/base/compilation/rule.rb:70:in `instance_eval'
   16. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/base/compilation/rule.rb:70:in `apply_to'
   17. /usr/local/lib/ruby/gems/2.1.0/gems/nanoc-3.7.3/lib/nanoc/base/compilation/compiler.rb:386:in `compile_rep'
@@ -55,14 +55,15 @@ Haml::Error: Invalid filter name ":preserve var meh = 'meh';".
 ===== VERSION INFORMATION:
 
 nanoc 3.7.3 © 2007-2014 Denis Defreyne.
-Running ruby 2.1.3 (2014-09-19) on x86_64-darwin11.0 with RubyGems 2.2.2.
+Running ruby 2.1.3 (2014-09-19) on x86_64-darwin13.0 with RubyGems 2.2.2.
 
 ===== SYSTEM INFORMATION:
 
-Darwin Johns-MacBook.local 11.4.2 Darwin Kernel Version 11.4.2: Thu Aug 23 16:26:45 PDT 2012; root:xnu-1699.32.7~1/RELEASE_I386 i386
+Darwin Johns-iMac.local 13.4.0 Darwin Kernel Version 13.4.0: Sun Aug 17 19:50:11 PDT 2014; root:xnu-2422.115.4~1/RELEASE_X86_64 x86_64
 
 ===== INSTALLED GEMS:
 
+  RedCloth 4.2.9
   actionmailer 4.1.4, 4.1.6
   actionpack 4.1.4, 4.1.6
   actionview 4.1.4, 4.1.6
@@ -72,97 +73,158 @@ Darwin Johns-MacBook.local 11.4.2 Darwin Kernel Version 11.4.2: Thu Aug 23 16:26
   adsf 1.2.0
   arel 5.0.1.20140414130214
   bigdecimal 1.2.4
+  blankslate 2.1.2.4
   builder 3.2.2
   bundler 1.7.3
+  celluloid 0.16.0
+  chunky_png 1.3.1
+  classifier-reborn 2.0.1
   coffee-rails 4.0.1
   coffee-script 2.2.0, 2.3.0
   coffee-script-source 1.7.0, 1.8.0
+  colorator 0.1
   colored 1.2
+  compass 0.12.7
+  cowsay 0.1.0
   cri 2.6.1
   erubis 2.7.0
   execjs 2.2.1
+  faraday 0.9.0
+  fast-stemmer 1.0.2
+  ffi 1.9.5
+  figaro 1.0.0
+  fssm 0.2.10
   haml 4.0.5, 4.1.0.beta.1
   haml-rails 0.5.3
+  hashie 3.3.1
   hike 1.2.3
+  hitimes 1.2.2
   hpricot 0.8.6
   html2haml 1.0.1
   i18n 0.6.9, 0.6.11, 0.7.0.beta1
   io-console 0.4.2
   jbuilder 2.1.1, 2.1.3
+  jekyll 2.4.0
+  jekyll-coffeescript 1.0.1
+  jekyll-gist 1.1.0
+  jekyll-paginate 1.0.0
+  jekyll-sass-converter 1.2.1
+  jekyll-sitemap 0.6.0
+  jekyll-watch 1.1.1
   jquery-rails 3.1.1, 3.1.2
   json 1.8.1
+  jwt 1.0.0
   kgio 2.9.2
   kramdown 1.4.2
+  libv8 3.16.14.7
+  liquid 2.6.1
+  listen 2.7.11
   mail 2.5.4, 2.6.1
+  mercenary 0.3.4
   mime-types 1.25.1, 2.3
   mini_portile 0.6.0
-  minitest 4.7.5, 5.3.5, 5.4.1
+  minitest 4.7.5, 5.3.5, 5.4.1, 5.4.2
   multi_json 1.10.1
+  multi_xml 0.5.5
+  multipart-post 2.0.0
+  mysql 2.9.1
+  mysql2 0.3.16
   nanoc 3.7.3
   nokogiri 1.6.3.1
+  oauth2 1.0.0
+  octopress-date-format 2.0.1
+  octopress-hooks 2.2.1
+  omniauth 1.2.2
+  omniauth-google-oauth2 0.2.5
+  omniauth-oauth2 1.2.0
+  parslet 1.5.0
   pg 0.17.1
   polyglot 0.3.5
-  postgres 0.8.1
+  posix-spawn 0.3.9
   psych 2.0.5
+  pygments.rb 0.6.0
   rack 1.5.2
+  rack-protection 1.5.3
   rack-test 0.6.2
   rails 4.1.4, 4.1.6
   rails_12factor 0.0.2
-  rails_serve_static_assets 0.0.1
-  rails_stdout_logging 0.0.2
+  rails_serve_static_assets 0.0.1, 0.0.2
+  rails_stdout_logging 0.0.2, 0.0.3
   railties 4.1.4, 4.1.6
   raindrops 0.13.0
   rake 10.1.0, 10.3.2
+  rb-fsevent 0.9.4
+  rb-inotify 0.9.5
+  rdiscount 2.1.7.1
   rdoc 4.1.0, 4.1.1, 4.1.2
+  redcarpet 3.1.2
+  ref 1.0.5
   ruby_parser 3.1.3
+  rubypants 0.2.0
+  safe_yaml 1.0.4
   sass 3.2.19
+  sass-globbing 1.0.0
   sass-rails 4.0.3
   sdoc 0.4.0, 0.4.1
   sexp_processor 4.4.4
+  sinatra 1.4.5
   spring 1.1.3
   sprockets 2.11.0, 2.12.2
   sprockets-rails 2.1.3, 2.1.4
   sqlite3 1.3.9
+  stringex 1.4.0
   test-unit 2.1.3.0
+  therubyracer 0.12.1
   thor 0.19.1
   thread_safe 0.3.4
   tilt 1.4.1
+  timers 4.0.1
+  toml 0.1.1
   treetop 1.4.15
   turbolinks 2.2.2, 2.3.0
   tzinfo 1.2.1, 1.2.2
   uglifier 2.5.1, 2.5.3
   unicorn 4.8.3
+  yajl-ruby 1.1.0
 
 ===== ENVIRONMENT:
 
-Apple_PubSub_Socket_Render => "/tmp/launch-gic6iS/Render"
-Apple_Ubiquity_Message => "/tmp/launch-OgKSWS/Apple_Ubiquity_Message"
+Apple_PubSub_Socket_Render => "/tmp/launch-taT9BE/Render"
 CLICOLOR => "1"
-COMMAND_MODE => "unix2003"
-DISPLAY => "/tmp/launch-OF3WTE/org.x:0"
+DISPLAY => "/tmp/launch-IdJPUI/org.macosforge.xquartz:0"
 GEM_PATH => "/usr/local/lib/ruby/gems/2.1.0:/Users/macseanlaoish/.gem/ruby/2.1.0:/usr/local/Cellar/ruby/2.1.3/lib/ruby/gems/2.1.0"
 HOME => "/Users/macseanlaoish"
 LANG => "en_US.UTF-8"
 LOGNAME => "macseanlaoish"
-LS_COLORS => "ExGxBxDxCxEgEdxbxgxcxd"
+LSCOLORS => "ExGxBxDxCxEgEdxbxgxcxd"
 MAKEFLAGS => ""
 MAKELEVEL => "1"
 MFLAGS => ""
-OLDPWD => "/Users/macseanlaoish/dev"
-PATH => "/usr/local/heroku/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin:/usr/local/bin:/usr/local/lib/node_modules/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin"
-PS1 => "<\\u> \\e[0;33m\\w\\n\\e[0;36m$\\e[0m "
+NVM_DIR => "/Users/macseanlaoish/nvm"
+OLDPWD => "/Users/macseanlaoish"
+PATH => "/usr/local/opt/ruby/bin:/Users/macseanlaoish/npm/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/local/sbin:~/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/macseanlaoish/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin"
 PWD => "/Users/macseanlaoish/dev/grok-d3"
+PYTHONPATH => ":/usr/local/lib/python2.7/site-packages"
 SHELL => "/bin/bash"
 SHLVL => "1"
-SSH_AUTH_SOCK => "/tmp/launch-iJIYRz/Listeners"
-TERM => "xterm-256color"
+SSH_AUTH_SOCK => "/tmp/launch-HIrBpQ/Listeners"
+TERM => "xterm"
 TERM_PROGRAM => "Apple_Terminal"
-TERM_PROGRAM_VERSION => "303.2"
-TERM_SESSION_ID => "34BC31E2-92BB-4778-9AD3-B605EF0DFC35"
-TMPDIR => "/var/folders/ds/h4wd8yr12dn8t8gj1jvgly9w0000gn/T/"
+TERM_PROGRAM_VERSION => "326"
+TERM_SESSION_ID => "23DFA29E-A39D-42B5-890F-4384ADB2C5DD"
+TMPDIR => "/var/folders/vz/q3tg1kks0kz3yfv_g6vp7kj40000gn/T/"
 USER => "macseanlaoish"
 _ => "/usr/bin/make"
 __CF_USER_TEXT_ENCODING => "0x1F5:0:0"
+__CHECKFIX1436934 => "1"
+_system_arch => "x86_64"
+_system_name => "OSX"
+_system_type => "Darwin"
+_system_version => "10.9"
+rvm_bin_path => "/Users/macseanlaoish/.rvm/bin"
+rvm_path => "/Users/macseanlaoish/.rvm"
+rvm_prefix => "/Users/macseanlaoish"
+rvm_version => "1.25.32 (master)"
 
 ===== LOAD PATHS:
 
@@ -175,14 +237,14 @@ __CF_USER_TEXT_ENCODING => "0x1F5:0:0"
   6. /usr/local/lib/ruby/gems/2.1.0/gems/haml-4.1.0.beta.1/lib
   7. /usr/local/lib/ruby/gems/2.1.0/gems/erubis-2.7.0/lib
   8. /usr/local/lib/ruby/gems/2.1.0/gems/mini_portile-0.6.0/lib
-  9. /usr/local/lib/ruby/gems/2.1.0/extensions/x86_64-darwin-11/2.1.0/nokogiri-1.6.3.1
+  9. /usr/local/lib/ruby/gems/2.1.0/extensions/x86_64-darwin-13/2.1.0/nokogiri-1.6.3.1
   10. /usr/local/lib/ruby/gems/2.1.0/gems/nokogiri-1.6.3.1/lib
   11. /usr/local/lib/ruby/gems/2.1.0/gems/kramdown-1.4.2/lib
   12. /usr/local/lib/ruby/site_ruby/2.1.0
-  13. /usr/local/lib/ruby/site_ruby/2.1.0/x86_64-darwin11.0
+  13. /usr/local/lib/ruby/site_ruby/2.1.0/x86_64-darwin13.0
   14. /usr/local/lib/ruby/site_ruby
   15. /usr/local/lib/ruby/vendor_ruby/2.1.0
-  16. /usr/local/lib/ruby/vendor_ruby/2.1.0/x86_64-darwin11.0
+  16. /usr/local/lib/ruby/vendor_ruby/2.1.0/x86_64-darwin13.0
   17. /usr/local/lib/ruby/vendor_ruby
   18. /usr/local/Cellar/ruby/2.1.3/lib/ruby/2.1.0
-  19. /usr/local/Cellar/ruby/2.1.3/lib/ruby/2.1.0/x86_64-darwin11.0
+  19. /usr/local/Cellar/ruby/2.1.3/lib/ruby/2.1.0/x86_64-darwin13.0

@@ -4,5 +4,8 @@
 		= render "partials/shared-head"
 	%body
 		%link{:rel => "import", :href => @items['/assets/web-components/d3-example.html/'].path}/
+		#sidebar
+			= render "partials/sidebar"
 		#main
-			= yield
+			%article
+				= yield

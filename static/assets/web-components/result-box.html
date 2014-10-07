@@ -1,0 +1,60 @@
+<link rel="import" href="../bower/polymer/polymer.html" />
+
+<polymer-element name="result-box">
+  <template>
+    <iframe id="frame" src="./iframe-source.html" sandbox="allow-same-origin allow-scripts" on-load="{{handleReload}}"></iframe>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      :host #frame {
+        width: 100%;
+        height: 100%;
+        border: 2px solid #ccc;
+      }
+    </style>
+  </template>
+  <script>
+  (function() {
+
+    var js = '',
+        css = '';
+
+    Polymer({
+      resetFrame: function() {
+        this.$.frame.setAttribute('src', this.$.frame.getAttribute('src'));
+      },
+      handleReload: function() {
+        var doc = this.$.frame.contentDocument;
+        doc.getElementById('user-style').textContent = css;
+        var scr = doc.createElement('script');
+        scr.textContent = js;
+        doc.body.appendChild(scr);
+      },
+      handleStyleChange: function() {
+        var doc = this.$.frame.contentDocument;
+        doc.getElementById('user-style').textContent = css;
+      },
+      js: function(s) {
+        if (!arguments.length) return js;
+        js = s;
+        this.resetFrame();
+        return this;
+      },
+      css: function(s) {
+        if (!arguments.length) return css;
+        css = s;
+        this.handleStyleChange();
+        return this;
+      },
+      all: function(o) {
+        js = o.js || js
+        css = o.css || css
+        this.resetFrame();
+        return this;
+      }
+    });
+
+  })();
+  </script>
+</polymer-element>
